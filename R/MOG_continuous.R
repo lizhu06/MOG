@@ -258,8 +258,8 @@ MOG_continuous <- function(X, Y, U1, U2, types=NULL, center=FALSE,
     BETA <- t(BETA)
   }
   random_sel <- sample(seq(1, nrow(BETA)), 5)
-  beta_sub <- as.mcmc(t(BETA[random_sel, ]))
-  geweke_z <- geweke.diag(beta_sub, frac1=0.1, frac2=0.5)$z
+  beta_sub <- coda::as.mcmc(t(BETA[random_sel, ]))
+  geweke_z <- coda::geweke.diag(beta_sub, frac1=0.1, frac2=0.5)$z
   convergence <- all(abs(geweke_z) < 1.96, na.rm=TRUE)
 
   totalIter <- keepIter
@@ -290,9 +290,9 @@ MOG_continuous <- function(X, Y, U1, U2, types=NULL, center=FALSE,
         apply(BETA[which(feature_dup_index==x), ,drop=FALSE], 2, sum))
       BETA <- t(BETA_true)
     }
-    beta_sub <- as.mcmc(t(BETA[sample(seq(1, nrow(BETA)), 5), ]))
+    beta_sub <- coda::as.mcmc(t(BETA[sample(seq(1, nrow(BETA)), 5), ]))
     ## check convergence
-    geweke_z <- geweke.diag(beta_sub, frac1=0.1, frac2=0.5)$z
+    geweke_z <- coda::geweke.diag(beta_sub, frac1=0.1, frac2=0.5)$z
     convergence <- all(abs(geweke_z) < 1.96, na.rm=TRUE)
     totalIter <- totalIter + keepIter
   }

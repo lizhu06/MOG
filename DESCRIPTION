@@ -10,6 +10,7 @@ License: MIT + file LICENSE
 Imports: 
     Rcpp (>= 1.0.1),
     RcppEigen (>= 0.3.3.5.0),
-    glmnet
+    glmnet,
+    coda
 LinkingTo: Rcpp, RcppEigen
 RoxygenNote: 6.1.1

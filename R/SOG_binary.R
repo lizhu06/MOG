@@ -153,8 +153,8 @@ SOG_binary <- function(X, Y, U1, types=NULL,
     BETA <- rbind(BETA[1,], t(BETA_true))
   }
   random_sel <- sample(seq(1, nrow(BETA)), 5)
-  beta_sub <- as.mcmc(t(BETA[random_sel, ]))
-  geweke_z <- geweke.diag(beta_sub, frac1=0.1, frac2=0.5)$z
+  beta_sub <- coda::as.mcmc(t(BETA[random_sel, ]))
+  geweke_z <- coda::geweke.diag(beta_sub, frac1=0.1, frac2=0.5)$z
   convergence <- all(abs(geweke_z) < 1.96, na.rm=TRUE)
 
   totalIter <- keepIter
@@ -183,8 +183,8 @@ SOG_binary <- function(X, Y, U1, types=NULL,
       BETA <- rbind(BETA[1,], t(BETA_true))
     }
     random_sel <- sample(seq(1, nrow(BETA)), 5)
-    beta_sub <- as.mcmc(t(BETA[random_sel, ]))
-    geweke_z <- geweke.diag(beta_sub, frac1=0.1, frac2=0.5)$z
+    beta_sub <- coda::as.mcmc(t(BETA[random_sel, ]))
+    geweke_z <- coda::geweke.diag(beta_sub, frac1=0.1, frac2=0.5)$z
     convergence <- all(abs(geweke_z) < 1.96, na.rm=TRUE)
     totalIter <- totalIter + keepIter
   }
