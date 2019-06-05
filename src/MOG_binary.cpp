@@ -13,7 +13,7 @@ using Eigen::MatrixXi;
 using Eigen::VectorXi;  
 
 // [[Rcpp::export]]
-void set_seed(unsigned int seed) {
+void set_seed_mb(unsigned int seed) {
   Rcpp::Environment base_env("package:base");
   Rcpp::Function set_seed_r = base_env["set.seed"];
   set_seed_r(seed);  
@@ -436,7 +436,7 @@ Rcpp::List MCMC_mb(int seed, int burnInIter, int keepIter,
   Eigen::VectorXd SIGMA2(keepIter);
   Eigen::VectorXd PI1(keepIter);
   
-  set_seed(seed);
+  set_seed_mb(seed);
   int totalIter = burnInIter + keepIter;
   Eigen::VectorXd s2_vec(P+1);
   for(int p = 0; p < (P+1); p++){

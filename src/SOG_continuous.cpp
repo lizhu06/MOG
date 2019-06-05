@@ -11,7 +11,7 @@ using Eigen::MatrixXd;
 using Eigen::VectorXd;                  
 
 // [[Rcpp::export]]
-void set_seed(unsigned int seed) {
+void set_seed_sc(unsigned int seed) {
   Rcpp::Environment base_env("package:base");
   Rcpp::Function set_seed_r = base_env["set.seed"];
   set_seed_r(seed);  
@@ -270,7 +270,7 @@ Rcpp::List MCMC_sc(int seed, int burnInIter, int keepIter,
   Eigen::VectorXd PI1(keepIter);
   Eigen::MatrixXd PI2_LOGL_store(G, keepIter);
 
-  set_seed(seed);
+  set_seed_sc(seed);
 
   Eigen::VectorXd beta = gamma_1_rep_per_feature.array() * 
     gamma_2.array() * b.array();

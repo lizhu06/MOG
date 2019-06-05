@@ -6,13 +6,13 @@
 
 using namespace Rcpp;
 
-// set_seed
-void set_seed(unsigned int seed);
-RcppExport SEXP _MOG_set_seed(SEXP seedSEXP) {
+// set_seed_mb
+void set_seed_mb(unsigned int seed);
+RcppExport SEXP _MOG_set_seed_mb(SEXP seedSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< unsigned int >::type seed(seedSEXP);
-    set_seed(seed);
+    set_seed_mb(seed);
     return R_NilValue;
 END_RCPP
 }
@@ -272,13 +272,13 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// set_seed
-void set_seed(unsigned int seed);
-RcppExport SEXP _MOG_set_seed(SEXP seedSEXP) {
+// set_seed_mc
+void set_seed_mc(unsigned int seed);
+RcppExport SEXP _MOG_set_seed_mc(SEXP seedSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< unsigned int >::type seed(seedSEXP);
-    set_seed(seed);
+    set_seed_mc(seed);
     return R_NilValue;
 END_RCPP
 }
@@ -538,13 +538,13 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// set_seed
-void set_seed(unsigned int seed);
-RcppExport SEXP _MOG_set_seed(SEXP seedSEXP) {
+// set_seed_sb
+void set_seed_sb(unsigned int seed);
+RcppExport SEXP _MOG_set_seed_sb(SEXP seedSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< unsigned int >::type seed(seedSEXP);
-    set_seed(seed);
+    set_seed_sb(seed);
     return R_NilValue;
 END_RCPP
 }
@@ -725,13 +725,13 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// set_seed
-void set_seed(unsigned int seed);
-RcppExport SEXP _MOG_set_seed(SEXP seedSEXP) {
+// set_seed_sc
+void set_seed_sc(unsigned int seed);
+RcppExport SEXP _MOG_set_seed_sc(SEXP seedSEXP) {
 BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< unsigned int >::type seed(seedSEXP);
-    set_seed(seed);
+    set_seed_sc(seed);
     return R_NilValue;
 END_RCPP
 }
@@ -959,7 +959,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_MOG_set_seed", (DL_FUNC) &_MOG_set_seed, 1},
+    {"_MOG_set_seed_mb", (DL_FUNC) &_MOG_set_seed_mb, 1},
     {"_MOG_update_gamma1_mb", (DL_FUNC) &_MOG_update_gamma1_mb, 12},
     {"_MOG_update_gamma2_mb", (DL_FUNC) &_MOG_update_gamma2_mb, 16},
     {"_MOG_update_gamma3_mb", (DL_FUNC) &_MOG_update_gamma3_mb, 17},
@@ -970,7 +970,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_MOG_update_sigma2_mb", (DL_FUNC) &_MOG_update_sigma2_mb, 9},
     {"_MOG_update_s2_mb", (DL_FUNC) &_MOG_update_s2_mb, 9},
     {"_MOG_MCMC_mb", (DL_FUNC) &_MOG_MCMC_mb, 53},
-    {"_MOG_set_seed", (DL_FUNC) &_MOG_set_seed, 1},
+    {"_MOG_set_seed_mc", (DL_FUNC) &_MOG_set_seed_mc, 1},
     {"_MOG_update_gamma1_mc", (DL_FUNC) &_MOG_update_gamma1_mc, 12},
     {"_MOG_update_gamma2_mc", (DL_FUNC) &_MOG_update_gamma2_mc, 16},
     {"_MOG_update_gamma3_mc", (DL_FUNC) &_MOG_update_gamma3_mc, 17},
@@ -981,7 +981,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_MOG_update_sigma2_mc", (DL_FUNC) &_MOG_update_sigma2_mc, 9},
     {"_MOG_update_s2_mc", (DL_FUNC) &_MOG_update_s2_mc, 9},
     {"_MOG_MCMC_mc", (DL_FUNC) &_MOG_MCMC_mc, 53},
-    {"_MOG_set_seed", (DL_FUNC) &_MOG_set_seed, 1},
+    {"_MOG_set_seed_sb", (DL_FUNC) &_MOG_set_seed_sb, 1},
     {"_MOG_update_gamma1_sb", (DL_FUNC) &_MOG_update_gamma1_sb, 11},
     {"_MOG_update_gamma2_sb", (DL_FUNC) &_MOG_update_gamma2_sb, 13},
     {"_MOG_update_b_sb", (DL_FUNC) &_MOG_update_b_sb, 10},
@@ -990,7 +990,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_MOG_update_sigma2_sb", (DL_FUNC) &_MOG_update_sigma2_sb, 8},
     {"_MOG_update_s2_sb", (DL_FUNC) &_MOG_update_s2_sb, 8},
     {"_MOG_MCMC_sb", (DL_FUNC) &_MOG_MCMC_sb, 36},
-    {"_MOG_set_seed", (DL_FUNC) &_MOG_set_seed, 1},
+    {"_MOG_set_seed_sc", (DL_FUNC) &_MOG_set_seed_sc, 1},
     {"_MOG_update_gamma1_sc", (DL_FUNC) &_MOG_update_gamma1_sc, 11},
     {"_MOG_update_gamma2_sc", (DL_FUNC) &_MOG_update_gamma2_sc, 13},
     {"_MOG_update_b_sc", (DL_FUNC) &_MOG_update_b_sc, 11},

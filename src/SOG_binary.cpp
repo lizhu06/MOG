@@ -11,7 +11,7 @@ using Eigen::MatrixXd;
 using Eigen::VectorXd;                  
 
 // [[Rcpp::export]]
-void set_seed(unsigned int seed) {
+void set_seed_sb(unsigned int seed) {
   Rcpp::Environment base_env("package:base");
   Rcpp::Function set_seed_r = base_env["set.seed"];
   set_seed_r(seed);  
@@ -296,7 +296,7 @@ Rcpp::List MCMC_sb(int seed, int burnInIter, int keepIter,
   }
 
   int totalIter = burnInIter + keepIter;
-  set_seed(seed);
+  set_seed_sb(seed);
   for(int i = 0; i < totalIter; i++){
 
     Eigen::VectorXd mu = X * beta.matrix();
