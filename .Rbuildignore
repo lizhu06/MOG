@@ -1,0 +1,8 @@
+^LICENSE\.md$
+
+# History files
+.Rhistory
+.Rapp.history
+
+# mac .DS_Store
+.DS_Store
